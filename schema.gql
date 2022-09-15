@@ -1,0 +1,144 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Position {
+  id: String!
+  name: String!
+  code: String!
+  employee: [Employee!]
+}
+
+type Project {
+  id: String!
+  name: String!
+  status: Boolean!
+  employess: [Employee!]
+}
+
+type Employee {
+  id: String!
+  firstName: String!
+  lastName: String
+  email: String!
+  joining_start_date: String!
+  date_of_birth: String!
+  mobile_phone: String!
+  work_phone: String!
+  home_phone: String!
+  gender: String!
+  street_first: String!
+  street_second: String!
+  city: String!
+  employee_number: String!
+  employee_status: Boolean!
+  position: Position
+  positionId: String
+  department: Department
+  departmentId: String
+  projects: [Project!]
+}
+
+type Department {
+  id: String!
+  name: String!
+  employee: [Employee!]
+}
+
+type Query {
+  getAllEmployee: [Employee!]!
+  getSingleEmployee(id: String!): Employee!
+  getAllDepartment: [Department!]!
+  department(id: String!): Department!
+  getAllPosition: [Position!]!
+  position(id: String!): Position!
+  getAllProject: [Project!]!
+  project(id: String!): Project!
+}
+
+type Mutation {
+  createEmployee(employee: CreateEmployeeInput!): Employee!
+  removeEmployee(id: String!): Employee!
+  updateEmployee(employee: UpdateEmployeeInput!): Employee!
+  createDepartment(department: CreateDepartmentInput!): Department!
+  updateDepartment(updateDepartmentInput: UpdateDepartmentInput!): Department!
+  removeDepartment(id: String!): Department!
+  createPosition(position: CreatePositionInput!): Position!
+  updatePosition(updatePositionInput: UpdatePositionInput!): Position!
+  removePosition(id: String!): Position!
+  createProject(project: CreateProjectInput!): Project!
+  updateProject(updateProjectInput: UpdateProjectInput!): Project!
+  removeProject(id: String!): Project!
+}
+
+input CreateEmployeeInput {
+  email: String!
+  firstName: String!
+  lastName: String
+  joining_start_date: String
+  date_of_birth: String
+  mobile_phone: String
+  work_phone: String
+  home_phone: String
+  gender: String
+  street_first: String!
+  street_second: String
+  city: String!
+  employee_number: String
+  employee_status: String
+  positionId: String
+  departmentId: String
+  projectIds: [String!]!
+}
+
+input UpdateEmployeeInput {
+  email: String
+  firstName: String
+  lastName: String
+  joining_start_date: String
+  date_of_birth: String
+  mobile_phone: String
+  work_phone: String
+  home_phone: String
+  gender: String
+  street_first: String
+  street_second: String
+  city: String
+  employee_number: String
+  employee_status: String
+  positionId: String
+  departmentId: String
+  projectIds: [String!]
+  id: String!
+}
+
+input CreateDepartmentInput {
+  name: String!
+}
+
+input UpdateDepartmentInput {
+  name: String
+  id: String!
+}
+
+input CreatePositionInput {
+  name: String!
+  code: String!
+}
+
+input UpdatePositionInput {
+  name: String
+  code: String
+  id: String!
+}
+
+input CreateProjectInput {
+  name: String!
+  status: Boolean!
+}
+
+input UpdateProjectInput {
+  name: String
+  status: Boolean
+  id: String!
+}
