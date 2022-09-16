@@ -108,7 +108,7 @@ Project-Employee(Many to Many)
 
 ![Create Employee](https://github.com/upasanatailor/nestjs_graphql_typeorm/blob/main/apps/img/createEmployee.png)
 
-![Get All Employee](https://github.com/upasanatailor/nestjs_graphql_typeorm/blob/main/apps/img/getallEmployee.png)
+![Get All Employee Relations](https://github.com/upasanatailor/nestjs_graphql_typeorm/blob/main/apps/img/allRelationsWithEmployee.png)
 
 ## Created By
 
