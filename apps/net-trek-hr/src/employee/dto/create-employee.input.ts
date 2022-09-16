@@ -6,6 +6,7 @@ import {
   Length,
   IsNotEmpty,
   IsString,
+  IsDateString,
 } from 'class-validator';
 
 @InputType()
@@ -15,7 +16,6 @@ export class CreateEmployeeInput {
   email: string;
 
   @Field()
-  @MinLength(3)
   firstName: string;
 
   @Field({ nullable: true })
@@ -28,15 +28,15 @@ export class CreateEmployeeInput {
   date_of_birth: string;
 
   @Field({ nullable: true })
-  @Length(10, 20)
+  @Length(8, 20)
   mobile_phone: string;
 
   @Field({ nullable: true })
-  @Length(10, 20)
+  @Length(8, 20)
   work_phone: string;
 
   @Field({ nullable: true })
-  @Length(10, 20)
+  @Length(8, 20)
   home_phone: string;
 
   @Field({ nullable: true })

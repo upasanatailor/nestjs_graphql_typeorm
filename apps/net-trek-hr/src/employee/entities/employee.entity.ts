@@ -36,7 +36,7 @@ export class Employee {
   email: string;
 
   @Field()
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'date' })
   joining_start_date: string;
 
   @Field()
