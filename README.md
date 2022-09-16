@@ -106,7 +106,9 @@ Project-Employee(Many to Many)
 
 #### GRAPHQL OUTPUT SCREENSHOTS
 
-![Alt text](hr\apps\img\createEmployee.png?raw=true)
+![Create Employee](https://github.com/upasanatailor/nestjs_graphql_typeorm/blob/main/apps/img/createEmployee.png)
+
+![Get All Employee](https://github.com/upasanatailor/nestjs_graphql_typeorm/blob/main/apps/img/getallEmployee.png)
 
 ## Created By
 
