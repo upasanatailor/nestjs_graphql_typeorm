@@ -13,6 +13,8 @@ import { PositionModule } from '../position/position.module';
 import { Position } from '../position/entities/position.entity';
 import { ProjectModule } from '../project/project.module';
 import { Project } from '../project/entities/project.entity';
+import { TerminationModule } from '../termination/termination.module';
+import { Termination } from '../termination/entities/termination.entity';
 
 @Module({
   imports: [
@@ -20,6 +22,7 @@ import { Project } from '../project/entities/project.entity';
     DepartmentModule,
     PositionModule,
     ProjectModule,
+    TerminationModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
@@ -31,7 +34,7 @@ import { Project } from '../project/entities/project.entity';
       username: 'postgres',
       password: '1234',
       database: 'netTrekHR',
-      entities: [Employee, Department, Position, Project],
+      entities: [Employee, Department, Position, Project, Termination],
       synchronize: true,
     }),
   ],

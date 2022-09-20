@@ -14,6 +14,7 @@ import {
 import { Department } from '../../department/entities/department.entity';
 import { Position } from '../../position/entities/position.entity';
 import { Project } from '../../project/entities/project.entity';
+import { Termination } from '../../termination/entities/termination.entity';
 
 @ObjectType()
 @Entity()
@@ -99,4 +100,10 @@ export class Employee {
     onUpdate: 'CASCADE',
   })
   projects: Project[];
+
+  @Field(() => [Termination], { nullable: true })
+  @OneToOne(() => Termination, (termination) => termination.employee, {
+    cascade: true,
+  })
+  termination: Termination;
 }

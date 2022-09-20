@@ -65,7 +65,6 @@ export class CreateEmployeeInput {
   departmentId: string;
 
   @Field(() => [String])
-  @IsNotEmpty()
   @IsString({ each: true })
   projectIds: string[];
 }

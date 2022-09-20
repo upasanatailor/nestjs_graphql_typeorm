@@ -6,12 +6,14 @@ import { Employee } from './entities/employee.entity';
 import { DepartmentModule } from '../department/department.module';
 import { PositionModule } from '../position/position.module';
 import { ProjectModule } from '../project/project.module';
+import { TerminationModule } from '../termination/termination.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Employee]),
     DepartmentModule,
     PositionModule,
+    forwardRef(() => TerminationModule),
     forwardRef(() => ProjectModule),
   ],
   providers: [EmployeeResolver, EmployeeService],

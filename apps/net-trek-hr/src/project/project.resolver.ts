@@ -8,8 +8,8 @@ import { UpdateProjectInput } from './dto/update-project.input';
 export class ProjectResolver {
   constructor(private readonly projectService: ProjectService) {}
   @Mutation(() => Project, { name: 'createProject' })
-  create(@Args('project') position: CreateProjectInput) {
-    return this.projectService.create(position);
+  create(@Args('project') project: CreateProjectInput) {
+    return this.projectService.create(project);
   }
 
   @Mutation(() => Project)

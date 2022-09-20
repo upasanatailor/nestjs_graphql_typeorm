@@ -15,6 +15,7 @@ import { UpdateEmployeeInput } from './dto/update-employee.input';
 import { Position } from '../position/entities/position.entity';
 import { Project } from '../project/entities/project.entity';
 import { ConsoleLogger } from '@nestjs/common';
+import { Termination } from '../termination/entities/termination.entity';
 
 @Resolver(() => Employee)
 export class EmployeeResolver {
@@ -45,6 +46,11 @@ export class EmployeeResolver {
   updateEmployee(@Args('employee') employee: UpdateEmployeeInput) {
     console.log(employee);
     return this.employeeService.update(employee.id, employee);
+  }
+
+  @ResolveField(() => [Termination], { name: 'termination' })
+  async termination(@Parent() employee: Employee) {
+    return this.employeeService.getTermination(employee.id);
   }
 
   @ResolveField(() => [Project], { name: 'projects' })

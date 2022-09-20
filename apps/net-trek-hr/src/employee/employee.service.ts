@@ -8,6 +8,8 @@ import { Position } from '../position/entities/position.entity';
 import { PositionService } from '../position/position.service';
 import { Project } from '../project/entities/project.entity';
 import { ProjectService } from '../project/project.service';
+import { Termination } from '../termination/entities/termination.entity';
+import { TerminationService } from '../termination/termination.service';
 import { CreateEmployeeInput } from './dto/create-employee.input';
 import { UpdateEmployeeInput } from './dto/update-employee.input';
 import { Employee } from './entities/employee.entity';
@@ -19,7 +21,8 @@ export class EmployeeService {
     private employeeRepository: Repository<Employee>,
     private departmentService: DepartmentService,
     private positionService: PositionService,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private terminationService: TerminationService
   ) {}
 
   async create(employee: CreateEmployeeInput): Promise<Employee> {
@@ -43,6 +46,10 @@ export class EmployeeService {
 
   async getPosition(id: string): Promise<Position> {
     return this.positionService.findOne(id);
+  }
+
+  async getTermination(id: string): Promise<Termination> {
+    return this.terminationService.findOne(id);
   }
 
   findOne(id: string): Promise<Employee> {

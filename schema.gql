@@ -16,6 +16,12 @@ type Project {
   employess: [Employee!]
 }
 
+type Termination {
+  id: String!
+  status: Boolean!
+  date: String!
+}
+
 type Employee {
   id: String!
   firstName: String!
@@ -37,6 +43,7 @@ type Employee {
   department: Department
   departmentId: String
   projects: [Project!]
+  termination: [Termination!]
 }
 
 type Department {
@@ -52,6 +59,8 @@ type Query {
   department(id: String!): Department!
   getAllPosition: [Position!]!
   position(id: String!): Position!
+  termination: [Termination!]!
+  getSingleTermination(id: String!): Termination!
   getAllProject: [Project!]!
   project(id: String!): Project!
 }
@@ -66,6 +75,9 @@ type Mutation {
   createPosition(position: CreatePositionInput!): Position!
   updatePosition(updatePositionInput: UpdatePositionInput!): Position!
   removePosition(id: String!): Position!
+  createTermination(termination: CreateTerminationInput!): Termination!
+  updateTermination(updateTerminationInput: UpdateTerminationInput!): Termination!
+  removeTermination(id: String!): Termination!
   createProject(project: CreateProjectInput!): Project!
   updateProject(updateProjectInput: UpdateProjectInput!): Project!
   removeProject(id: String!): Project!
@@ -129,6 +141,19 @@ input CreatePositionInput {
 input UpdatePositionInput {
   name: String
   code: String
+  id: String!
+}
+
+input CreateTerminationInput {
+  date: String!
+  status: Boolean!
+  employeeId: String!
+}
+
+input UpdateTerminationInput {
+  date: String
+  status: Boolean
+  employeeId: String
   id: String!
 }
 
