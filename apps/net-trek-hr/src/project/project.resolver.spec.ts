@@ -4,10 +4,14 @@ import { ProjectService } from './project.service';
 
 describe('ProjectResolver', () => {
   let resolver: ProjectResolver;
+  const projectService = {};
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ProjectResolver, ProjectService],
+      providers: [
+        ProjectResolver,
+        { provide: ProjectService, useValue: projectService },
+      ],
     }).compile();
 
     resolver = module.get<ProjectResolver>(ProjectResolver);

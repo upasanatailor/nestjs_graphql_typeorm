@@ -4,10 +4,14 @@ import { PositionService } from './position.service';
 
 describe('PositionResolver', () => {
   let resolver: PositionResolver;
+  const positionService = {};
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [PositionResolver, PositionService],
+      providers: [
+        PositionResolver,
+        { provide: PositionService, useValue: positionService },
+      ],
     }).compile();
 
     resolver = module.get<PositionResolver>(PositionResolver);

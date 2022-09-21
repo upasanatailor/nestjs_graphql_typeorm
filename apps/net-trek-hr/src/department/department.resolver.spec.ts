@@ -4,10 +4,14 @@ import { DepartmentService } from './department.service';
 
 describe('DepartmentResolver', () => {
   let resolver: DepartmentResolver;
+  const departmentService = {};
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [DepartmentResolver, DepartmentService],
+      providers: [
+        DepartmentResolver,
+        { provide: DepartmentService, useValue: departmentService },
+      ],
     }).compile();
 
     resolver = module.get<DepartmentResolver>(DepartmentResolver);

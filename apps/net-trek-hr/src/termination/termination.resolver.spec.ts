@@ -4,10 +4,14 @@ import { TerminationService } from './termination.service';
 
 describe('TerminationResolver', () => {
   let resolver: TerminationResolver;
+  const terminationService = {};
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [TerminationResolver, TerminationService],
+      providers: [
+        TerminationResolver,
+        { provide: TerminationService, useValue: terminationService },
+      ],
     }).compile();
 
     resolver = module.get<TerminationResolver>(TerminationResolver);
