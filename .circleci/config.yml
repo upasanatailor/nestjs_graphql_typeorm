@@ -1,19 +1,16 @@
 version: 2.1
-workflows:
-  build:
-    jobs:
-      - test
+orbs:
+  node: circleci/node@3.0.0
 jobs:
-  test:
-    environment:
-      NODE_ENV: test
+  build-and-test:
+    executor:
+      name: node/default
     steps:
       - checkout
-      - restore_cache:
-          key: v1-deps-{{ checksum "package.json" }}
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-deps-{{ checksum "package.json" }}
-      - run: yarn test
+      - node/install-packages
+      - run:
+          command: npm run test
+workflows:
+  build-and-test:
+    jobs:
+      - build-and-test
